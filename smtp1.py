@@ -8,9 +8,11 @@ from socket import *
 msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
 # Choose a mail server (e.g. Google mail server) and call it mailserver
-mailserver =  # Fill in start #Fill in end
+mailserver = "smtp.gmail.com"# Fill in start #Fill in end
 # Create socket called clientSocket and establish a TCP connection with mailserver
 # Fill in start
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((mailserver, 25))
 # Fill in end
 recv = clientSocket.recv(1024).decode()
 print(recv)
