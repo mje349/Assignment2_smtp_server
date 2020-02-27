@@ -71,6 +71,6 @@ quitCommand = 'QUIT Alice\r\n'
 clientSocket.send(quitCommand.encode())
 recv5 = clientSocket.recv(1024).decode()
 print(recv5)
-if recv5[:3] != '250'
-    print('250 reply not received from server.')
+if recv5[:3] != '221'
+    print('221 reply not received from server.')
 # Fill in end
