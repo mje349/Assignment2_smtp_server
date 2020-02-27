@@ -61,15 +61,23 @@ if recv4[:3] != '354':
 
 # Send message data.
 # Fill in start
+
+#Custom Email Message
+'''
 message = raw_input("Enter your message: ")
 clientSocket.send(message.encode())
+'''
+#End of Custom Message
+
 # Fill in end
 
 # Message ends with a single period.
 # Fill in start
-period = '\r\n.\r\n'
-clientSocket.send(period.encode())
-print('Message: \"' + message + "\" sent")
+#period = '\r\n.\r\n'
+clientSocket.send(endmsg.encode())
+#Print Custom message
+#print('Message: \"' + message + "\" sent")
+print('Message: ' + msg + ' sent!')
 
 recv6 = clientSocket.recv(1024).decode()
 print(recv6)
