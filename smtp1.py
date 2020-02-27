@@ -28,9 +28,23 @@ if recv1[:3] != '250':
 
 # Send MAIL FROM command and print server response.
 # Fill in start
+mailFromCommand = 'MAIL FROM Alice\r\n'
+clientSocket.send(mailFromCommand.encode())
+recv2 = clientSocket.recv(1024).decode()
+print(recv2)
+if recv2[:3] != '250':
+    print('250 reply not received from server.')
+
 # Fill in end
+
 # Send RCPT TO command and print server response.
 # Fill in start
+rcptCommand = 'RCPT Alice\r\n'
+clientSocket.send(rcptCommand.encode())
+recv3 = clientSocket.recv(1024).decode()
+print(recv3)
+if recv3[:3] != '250':
+    print('250 reply not received from server.')
 # Fill in end
 # Send DATA command and print server response.
 # Fill in start
