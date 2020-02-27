@@ -53,8 +53,8 @@ dataCommand = 'DATA Alice\r\n'
 clientSocket.send(dataCommand.encode())
 recv4 = clientSocket.recv(1024).decode()
 print(recv4)
-if recv4[:3] != '250':
-    print('250 reply not received from server.')
+if recv4[:3] != '354':
+    print('354 reply not received from server.')
 # Fill in end
 
 # Send message data.
