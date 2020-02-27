@@ -5,10 +5,12 @@
 
 from socket import *
 
+from pip._vendor.distlib.compat import raw_input
+
 msg = "\r\n I love computer networks!"
 endmsg = "\r\n.\r\n"
 # Choose a mail server (e.g. Google mail server) and call it mailserver
-mailserver = "smtp.gmail.com"# Fill in start #Fill in end
+mailserver = "smtp.nyu.edu"# Fill in start #Fill in end
 # Create socket called clientSocket and establish a TCP connection with mailserver
 # Fill in start
 clientSocket = socket(AF_INET, SOCK_STREAM)
@@ -59,10 +61,22 @@ if recv4[:3] != '354':
 
 # Send message data.
 # Fill in start
+message = raw_input("Enter your message: ")
+clientSocket.send(message.encode())
 # Fill in end
 
 # Message ends with a single period.
 # Fill in start
+period = '.'
+clientSocket.send(period.encode())
+print('Message: \"' + message + "\" sent")
+
+recv6 = clientSocket.recv(1024).decode()
+print(recv6)
+
+if recv6[:3] != '250':
+    print('250 reply not received from server')
+
 # Fill in end
 
 # Send QUIT command and get server response.
@@ -71,6 +85,6 @@ quitCommand = 'QUIT Alice\r\n'
 clientSocket.send(quitCommand.encode())
 recv5 = clientSocket.recv(1024).decode()
 print(recv5)
-if recv5[:3] != '221'
+if recv5[:3] != '221':
     print('221 reply not received from server.')
 # Fill in end
