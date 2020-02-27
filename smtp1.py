@@ -46,15 +46,31 @@ print(recv3)
 if recv3[:3] != '250':
     print('250 reply not received from server.')
 # Fill in end
+
 # Send DATA command and print server response.
 # Fill in start
+dataCommand = 'DATA Alice\r\n'
+clientSocket.send(dataCommand.encode())
+recv4 = clientSocket.recv(1024).decode()
+print(recv4)
+if recv4[:3] != '250':
+    print('250 reply not received from server.')
 # Fill in end
+
 # Send message data.
 # Fill in start
 # Fill in end
+
 # Message ends with a single period.
 # Fill in start
 # Fill in end
+
 # Send QUIT command and get server response.
 # Fill in start
+quitCommand = 'QUIT Alice\r\n'
+clientSocket.send(quitCommand.encode())
+recv5 = clientSocket.recv(1024).decode()
+print(recv5)
+if recv5[:3] != '250'
+    print('250 reply not received from server.')
 # Fill in end
