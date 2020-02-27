@@ -30,7 +30,7 @@ if recv1[:3] != '250':
 
 # Send MAIL FROM command and print server response.
 # Fill in start
-mailFromCommand = 'MAIL FROM Alice\r\n'
+mailFromCommand = 'MAIL FROM\r\n'
 clientSocket.send(mailFromCommand.encode())
 recv2 = clientSocket.recv(1024).decode()
 print(recv2)
@@ -41,7 +41,7 @@ if recv2[:3] != '250':
 
 # Send RCPT TO command and print server response.
 # Fill in start
-rcptCommand = 'RCPT Alice\r\n'
+rcptCommand = 'RCPT\r\n'
 clientSocket.send(rcptCommand.encode())
 recv3 = clientSocket.recv(1024).decode()
 print(recv3)
@@ -51,7 +51,7 @@ if recv3[:3] != '250':
 
 # Send DATA command and print server response.
 # Fill in start
-dataCommand = 'DATA Alice\r\n'
+dataCommand = 'DATA\r\n'
 clientSocket.send(dataCommand.encode())
 recv4 = clientSocket.recv(1024).decode()
 print(recv4)
@@ -81,7 +81,7 @@ if recv6[:3] != '250':
 
 # Send QUIT command and get server response.
 # Fill in start
-quitCommand = 'QUIT Alice\r\n'
+quitCommand = 'QUIT\r\n'
 clientSocket.send(quitCommand.encode())
 recv5 = clientSocket.recv(1024).decode()
 print(recv5)
