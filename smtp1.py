@@ -21,7 +21,7 @@ print(recv)
 if recv[:3] != '220':
     print('220 reply not received from server.')
 # Send HELO command and print server response.
-heloCommand = 'HELO Alice\r\n'
+heloCommand = 'HELO mje349\r\n'
 clientSocket.send(heloCommand.encode())
 recv1 = clientSocket.recv(1024).decode()
 print(recv1)
@@ -30,7 +30,7 @@ if recv1[:3] != '250':
 
 # Send MAIL FROM command and print server response.
 # Fill in start
-mailFromCommand = 'MAIL FROM\r\n'
+mailFromCommand = 'MAIL FROM: mje349@nyu.edu\r\n'
 clientSocket.send(mailFromCommand.encode())
 recv2 = clientSocket.recv(1024).decode()
 print(recv2)
@@ -41,7 +41,7 @@ if recv2[:3] != '250':
 
 # Send RCPT TO command and print server response.
 # Fill in start
-rcptCommand = 'RCPT\r\n'
+rcptCommand = 'RCPT TO: mje349@nyu.edu\r\n'
 clientSocket.send(rcptCommand.encode())
 recv3 = clientSocket.recv(1024).decode()
 print(recv3)
@@ -67,7 +67,7 @@ clientSocket.send(message.encode())
 
 # Message ends with a single period.
 # Fill in start
-period = '.'
+period = '\r\n.\r\n'
 clientSocket.send(period.encode())
 print('Message: \"' + message + "\" sent")
 
