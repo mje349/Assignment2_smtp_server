@@ -63,11 +63,11 @@ if recv4[:3] != '354':
 # Fill in start
 
 #Custom Email Message
-'''
 message = raw_input("Enter your message: ")
 clientSocket.send(message.encode())
-'''
 #End of Custom Message
+
+#clientSocket.send(msg.encode())
 
 # Fill in end
 
