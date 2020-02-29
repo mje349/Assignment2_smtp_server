@@ -1,7 +1,15 @@
 #Author: Montana Esguerra
 #Date: 2/24/2020
-#Filename: smtp1.py
-#Description: Simple SMTP server
+#Filename: smtp_mje349.py
+#Description: This program is a simple SMTP client that can send emails on behalf of a given user to another user
+#In the MAIL FROM section, enter a valid email address - this will be who is sending the email
+#In the RCPT TO section, enter a valid email address for who you would like to send an email to
+#
+#Currently, this program sends a default message "I love computer networks!" but there is also a commented section
+#that allows for custom messages to be sent
+#This program does not allow for custom Subject Lines.
+#To run this program, you must connect to vpn.nyu.edu - the mail server being used is smtp.nyu.edu
+
 
 from socket import *
 
@@ -41,7 +49,7 @@ if recv2[:3] != '250':
 
 # Send RCPT TO command and print server response.
 # Fill in start
-rcptCommand = 'RCPT TO: mje349@nyu.edu\r\n'
+rcptCommand = 'RCPT TO: montanaesguerra@gmail.com\r\n'
 clientSocket.send(rcptCommand.encode())
 recv3 = clientSocket.recv(1024).decode()
 print(recv3)
@@ -62,18 +70,19 @@ if recv4[:3] != '354':
 # Send message data.
 # Fill in start
 
+
 #Custom Email Message
-message = raw_input("Enter your message: ")
-clientSocket.send(message.encode())
+#message = raw_input("Enter your message: ")
+#clientSocket.send(message.encode())
 #End of Custom Message
 
-#clientSocket.send(msg.encode())
+#DEFAULT MSG from assignment 2
+clientSocket.send(msg.encode())
 
 # Fill in end
 
 # Message ends with a single period.
 # Fill in start
-#period = '\r\n.\r\n'
 clientSocket.send(endmsg.encode())
 #Print Custom message
 #print('Message: \"' + message + "\" sent")
